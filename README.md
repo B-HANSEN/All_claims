@@ -7,62 +7,60 @@ This assignment is to be done as part of the recruitment process in tigerlab. Yo
 Your application must meet the following requirements:
 
 1. Include 2 pages
-    - **Claim list**: Table format with the following fields
-        - Claim id
-        - Status
-        - Claim amount
-        - Holder name
-        - Policy number
-        - Insured item
-        - Description
-        - Incident date
-        - Processing fee
-        - Total amount (Claim amount + Processing fee)
-        - Created at
-    - **Create claim page**, which contains:
-        - Policy number
-        - Holder name
-        - Insured item
-        - Claim amount: string, 2 decimal point. e.g: "15.50"
-        - Description
-        - Incident date
-        - Processing fee: string, 2 decimal point. e.g: "15.50"
+   - **Claim list**: Table format with the following fields
+     - Claim id
+     - Status
+     - Claim amount
+     - Holder name
+     - Policy number
+     - Insured item
+     - Description
+     - Incident date
+     - Processing fee
+     - Total amount (Claim amount + Processing fee)
+     - Created at
+   - **Create claim page**, which contains:
+     - Policy number
+     - Holder name
+     - Insured item
+     - Claim amount: string, 2 decimal point. e.g: "15.50"
+     - Description
+     - Incident date
+     - Processing fee: string, 2 decimal point. e.g: "15.50"
 2. Able to search by:
-    - `claim id`; or
-    - `holder name`; or
-    - `policy number `
+   - `claim id`; or
+   - `holder name`; or
+   - `policy number `
 3. Able to filter by `status` (select). Statuses are:
-    - `Submitted`
-    - `Approved`
-    - `Processed`
-    - `Completed`
-    - `Rejected`
+   - `Submitted`
+   - `Approved`
+   - `Processed`
+   - `Completed`
+   - `Rejected`
 4. Use any CSS framework
 5. Use any framework or library. We recommend React.
 6. Integrate with third party library. At least date picker
 
-
 **For intermediate and senior candidate:**
 
 7. Able to sort by
-    - `newly created`
-    - `latest created`
-    - `smallest claim amount`
-    - `largest claim amount`
-    - `smallest processing fee`
-    - `largest processing fee`
-    - `smallest total amount`
-    - `largest total amount`
+   - `newly created`
+   - `latest created`
+   - `smallest claim amount`
+   - `largest claim amount`
+   - `smallest processing fee`
+   - `largest processing fee`
+   - `smallest total amount`
+   - `largest total amount`
 8. Include validation for all fields is required.
 9. Include validation for incident date to be more than 6 months and less than tomorrow
 10. All code must come together with tests (preferably Jest, but others are okay too)
 
-### Optional Requirements (Extra points)
+<!-- ### Optional Requirements (Extra points)
 
 11. Do API lookup for `policy number` field in the create claim form, and use the response to prefill the `holder name`
 12. Use routing to navigate those pages
-13. Display dialog modal to show welcome message based on query param called `admin=true`
-
+13. Display dialog modal to show welcome message based on query param called `admin=true` -->
 
 ℹ️ Search, filter, and sort functionalities should be done in frontend. no pagination and API-based queries provided.
 
@@ -77,11 +75,13 @@ To setup backend service, change directory to `mock/` and run `npm install`.
 To start the server, tun `npm run mock`.
 
 You can test the API response from the console, for example:
+
 ```
 curl -X GET http://localhost:8001/api/v1/claims
 ```
 
 Sample response:
+
 ```
 [
   {
