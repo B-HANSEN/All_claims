@@ -1,0 +1,17 @@
+.ClaimList {
+}
+
+.Filter {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.ClaimsTable {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-width: 1800px;
+	margin: auto 100px;
+}
