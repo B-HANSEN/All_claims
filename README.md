@@ -56,11 +56,11 @@ Your application must meet the following requirements:
 9. Include validation for incident date to be more than 6 months and less than tomorrow
 10. All code must come together with tests (preferably Jest, but others are okay too)
 
-<!-- ### Optional Requirements (Extra points)
+### Optional Requirements (Extra points)
 
 11. Do API lookup for `policy number` field in the create claim form, and use the response to prefill the `holder name`
 12. Use routing to navigate those pages
-13. Display dialog modal to show welcome message based on query param called `admin=true` -->
+13. Display dialog modal to show welcome message based on query param called `admin=true`
 
 ℹ️ Search, filter, and sort functionalities should be done in frontend. no pagination and API-based queries provided.
 

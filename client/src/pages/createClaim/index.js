@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Footer from '../../components/footer';
 import ClaimsForm from '../../components/form';
 import Header from '../../components/header';
-import './createClaim.css';
+// import './createClaim.css';
 
 const CreateClaim = () => {
 	return (

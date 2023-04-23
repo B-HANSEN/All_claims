@@ -5,8 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { useNavigate } from 'react-router-dom';
-import { addMonths } from '../../utility/helper';
-import './form.css';
+// import './form.css';
 const yup = require('yup');
 // import claimPayloadSchema from '../../utility/schemas';
 
@@ -190,7 +189,7 @@ const ClaimsForm = () => {
 				</Form.Label>
 				<Col sm='6'>
 					<Form.Control
-						placeholder=''
+						placeholder='YYYY-MM-DD'
 						value={incidentDate}
 						size='lg'
 						type='string'

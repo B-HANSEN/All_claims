@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-import CreateClaim from './pages/createClaim';
 import ClaimList from './pages/claimList';
+import CreateClaim from './pages/createClaim';
+import NotFound from './pages/notFound';
 import './App.css';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
 				<Routes>
 					<Route path='/' element={<ClaimList />} />
 					<Route path='create-claim' element={<CreateClaim />} />
+					<Route path='*' element={<NotFound />} />
 				</Routes>
 			</div>
 		</div>

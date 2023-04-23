@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-import Nav from 'react-bootstrap/Nav';
 import Footer from '../../components/footer';
 import Header from '../../components/header';
 import Search from '../../components/search';
