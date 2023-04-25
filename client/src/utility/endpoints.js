@@ -22,7 +22,7 @@ export const getClaimsList = async () => {
 				status: item.status,
 				totalFee: Number(item.amount) + Number(item.processingFee),
 			};
-			allClaims.push(mappedData);
+			return allClaims.push(mappedData);
 		});
 		return allClaims;
 	} catch (err) {
