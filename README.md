@@ -1,107 +1,58 @@
-# tigerlab FE Engineer Assignment
+# Application name
 
-This assignment is to be done as part of the recruitment process in tigerlab. You are tasked to build a simple react application that fulfills this requirement below.
+Tigerlab Frontend Engineer Assignment
 
-## Requirements
+## Table of Contents
 
-Your application must meet the following requirements:
+## Overview
 
-1. Include 2 pages
-   - **Claim list**: Table format with the following fields
-     - Claim id
-     - Status
-     - Claim amount
-     - Holder name
-     - Policy number
-     - Insured item
-     - Description
-     - Incident date
-     - Processing fee
-     - Total amount (Claim amount + Processing fee)
-     - Created at
-   - **Create claim page**, which contains:
-     - Policy number
-     - Holder name
-     - Insured item
-     - Claim amount: string, 2 decimal point. e.g: "15.50"
-     - Description
-     - Incident date
-     - Processing fee: string, 2 decimal point. e.g: "15.50"
-2. Able to search by:
-   - `claim id`; or
-   - `holder name`; or
-   - `policy number `
-3. Able to filter by `status` (select). Statuses are:
-   - `Submitted`
-   - `Approved`
-   - `Processed`
-   - `Completed`
-   - `Rejected`
-4. Use any CSS framework
-5. Use any framework or library. We recommend React.
-6. Integrate with third party library. At least date picker
+### Application walkthrough
 
-**For intermediate and senior candidate:**
+This application has a main screen which consists of three sections:
 
-7. Able to sort by
-   - `newly created`
-   - `latest created`
-   - `smallest claim amount`
-   - `largest claim amount`
-   - `smallest processing fee`
-   - `largest processing fee`
-   - `smallest total amount`
-   - `largest total amount`
-8. Include validation for all fields is required.
-9. Include validation for incident date to be more than 6 months and less than tomorrow
-10. All code must come together with tests (preferably Jest, but others are okay too)
+- a table of claims with various details (holder name, insured item, incident date etc)
+- available functions are (1) a claim search (by ID, holder name or policy number) as well as (2) a select feature which enables filtering by claim status. For a better user experience to work with the table, pagination has been added.
+- a link section:
 
-### Optional Requirements (Extra points)
+  - when clicking on the 'Create a new claim' button, the user is routed to a new page where a claim can be created
+  - the admin section can be opened from the main page. This will render a modal based on a related URL query.
 
-11. Do API lookup for `policy number` field in the create claim form, and use the response to prefill the `holder name`
-12. Use routing to navigate those pages
-13. Display dialog modal to show welcome message based on query param called `admin=true`
+- a page that enables the creation of a new claim. All fields are required to be filled to create a new entryin the database through an endpoint PUT request.
 
-ℹ️ Search, filter, and sort functionalities should be done in frontend. no pagination and API-based queries provided.
+- a modal which opens based on a search query `/?admin`. The modal shows a welcome message and a link back to the main page.
 
-ℹ️ There are no aesthetic or design requirements. There are also no time limits, but we will not be able to schedule your interview until we receive your submission.
+- in case the user inserts an incorrect URL, a Not Found page will indicate this, along with a link back to the main page.
 
-## Project Setup
+## Architecture Overview
 
-> Node v16.x is required
+- [Frontend](/client): a React application built with Create React App.
+  The frontend calls a backend endpoint to fetch the claims.
+
+- [Backend](/mock): The claims data are provided in the form of a json file. Through another endpoint, the user can also write into this database.
+
+### Requirements
+
+- Node v16.x is required
+
+### Start Application
 
 To setup backend service, change directory to `mock/` and run `npm install`.
-
 To start the server, tun `npm run mock`.
 
-You can test the API response from the console, for example:
+To setup frontend, change directory to `/client` and run `yarn`.
+To start the frontend, run `yarn start`.
+The app will be running on http://localhost:3000/
+It is necessary to add `/claims` to render the main page: http://localhost:3000/claims
 
-```
-curl -X GET http://localhost:8001/api/v1/claims
-```
+## Testing
 
-Sample response:
+To start the test runner, run `yarn test`.
 
-```
-[
-  {
-    "id": 1,
-    "number": "CL-16219",
-    "incidentDate": "2022-08-15",
-    "createdAt": "2022-08-20",
-    "amount": "464.00",
-    "holder": "Lola Kiehn",
-    "policyNumber": "TL-18592",
-    "insuredItem": "Licensed Metal Shirt",
-    "description": "Deserunt non vel tempora illo magni dicta tempora eos modi repellat cumque aut perferendis voluptatem.",
-    "processingFee": "118.00",
-    "status": "Submitted"
-  },
-]
-```
+- Several unit tests are run.
+- Test files are placed together in the components folders.
+- Test file format is \*.test.js
 
-## API Collection
+## Pending TODOs
 
-This assignment comes with an exported Postman API collection `apis.postman_collection.json` which you can import.
-
-> reference: https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman
+In the create claims form, the validation for the incident date does not yet provide the validation for the allowed date range. The user must insert according to the format as indicated in the placeholder text.
+However, it does provide the minimum validation check as required field, as implemented for all other input fields.

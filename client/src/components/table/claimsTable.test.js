@@ -1,6 +1,10 @@
 import { render, screen } from '@testing-library/react';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import React from 'react';
 import ClaimsTable from '.';
+
+const shallowRender = Component =>
+	new ShallowRenderer(Component).getRenderOutput();
 
 const claims = [
 	{
@@ -34,6 +38,10 @@ const claims = [
 ];
 
 describe('Claim List Page tests', () => {
+	it('should match snapshot', () => {
+		expect(shallowRender(<ClaimsTable />)).toMatchSnapshot();
+	});
+
 	it('should contain table headers', () => {
 		render(<ClaimsTable filteredClaims={claims} />);
 		const id = screen.getByText(/claim id/i);

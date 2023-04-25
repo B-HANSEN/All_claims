@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import Footer from '../../components/footer';
 import Header from '../../components/header';
 import Search from '../../components/search';
 import StatusFilter from '../../components/statusFilter';
@@ -12,7 +11,6 @@ const ClaimList = () => {
 	const [claims, setClaims] = useState([]);
 	const [searchQuery, setSearchQuery] = useState('');
 	const [statusFilter, setStatusFilter] = useState('ShowAll');
-	console.log('claims length: ', claims.length);
 
 	useEffect(() => {
 		const fetchClaims = async () => {
@@ -38,24 +36,32 @@ const ClaimList = () => {
 	return (
 		<div className='ClaimList'>
 			<Header />
-			<h1>Claim List</h1>
-			<section className='Filter'>
-				<Search setValue={setSearchQuery} />
-				<StatusFilter filter={statusFilter} setFilter={setStatusFilter} />
+			<section className='ClaimList__MainSection'>
+				<h1>Overview claims</h1>
+				<section className='ClaimList__Filter'>
+					<Search setValue={setSearchQuery} />
+					<StatusFilter filter={statusFilter} setFilter={setStatusFilter} />
+				</section>
+				<Button
+					className='mb-2'
+					href='/?admin=true'
+					size='lg'
+					variant='outline-success'
+				>
+					Admin Section
+				</Button>{' '}
+				<Button
+					className='mb-2'
+					href='/create-claim'
+					size='lg'
+					variant='outline-success'
+				>
+					Create a new claim
+				</Button>
+				<section className='ClaimList__Table'>
+					<ClaimsTable filteredClaims={filteredClaims} />
+				</section>
 			</section>
-			<Button
-				className='mb-2'
-				href='/create-claim'
-				size='lg'
-				variant='outline-success'
-			>
-				Create a new claim
-			</Button>
-
-			<section className='ClaimsTable'>
-				<ClaimsTable filteredClaims={filteredClaims} />
-			</section>
-			{/* <Footer /> */}
 		</div>
 	);
 };

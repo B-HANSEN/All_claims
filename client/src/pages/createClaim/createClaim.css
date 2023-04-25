@@ -1,4 +1,5 @@
-.ClaimsForm {
-	min-width: 1000px;
-	margin: auto 300px;
+.CreateClaim__MainSection {
+	position: absolute;
+	top: 100px;
+	width: 100vw;
 }

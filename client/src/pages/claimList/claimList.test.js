@@ -1,22 +1,34 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import '@testing-library/jest-dom';
 import ClaimList from '.';
+
+const shallowRender = Component =>
+	new ShallowRenderer(Component).getRenderOutput();
 
 beforeEach(() => {
 	render(<ClaimList />);
 });
 
 describe('Claim List Page tests', () => {
+	it('should match snapshot', () => {
+		expect(shallowRender(<ClaimList />)).toMatchSnapshot();
+	});
+
 	it('should contain heading, label and button texts', () => {
-		const heading = screen.getByText(/claim list/i);
+		const heading = screen.getByText(/overview claims/i);
 		const searchLabel = screen.getByText(
 			/search by id, holder name or policy/i
 		);
 		const query = screen.getByPlaceholderText(/enter query here.../i);
 		const filter = screen.getByText(/show all/i);
+		const status = screen.getByText(/filter by claim status/i);
 		const createNew = screen.getByRole('button', {
 			name: /create a new claim/i,
+		});
+		const admin = screen.getByRole('button', {
+			name: /admin section/i,
 		});
 
 		const submit = screen.getByRole('button', {
@@ -30,8 +42,14 @@ describe('Claim List Page tests', () => {
 		expect(searchLabel).toBeInTheDocument();
 		expect(query).toBeInTheDocument();
 		expect(filter).toBeInTheDocument();
+		expect(status).toBeInTheDocument();
 		expect(createNew).toBeInTheDocument();
+		expect(createNew).toBeEnabled();
+		expect(admin).toBeInTheDocument();
+		expect(admin).toBeEnabled();
 		expect(submit).toBeInTheDocument();
+		expect(submit).toBeEnabled();
 		expect(reset).toBeInTheDocument();
+		expect(reset).toBeEnabled();
 	});
 });

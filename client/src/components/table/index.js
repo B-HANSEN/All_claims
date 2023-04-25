@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-import Table from 'react-bootstrap/Table';
-import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import React from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
-import './claimsTable.css';
+import paginationFactory from 'react-bootstrap-table2-paginator';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 
 const ClaimsTable = ({ filteredClaims }) => {
-	// console.log('table props: ', filteredClaims);
 	const columns = [
 		{
 			dataField: 'number',
@@ -66,23 +64,9 @@ const ClaimsTable = ({ filteredClaims }) => {
 			hover
 			condensed
 			bootstrap4
+			pagination={paginationFactory({ sizePerPage: 10 })}
 		/>
 	);
 };
 
 export default ClaimsTable;
-
-// const createClaimsTable = filteredClaims.map((claim, index) => (
-// 	<tr key={index}>
-// 		<td>{claim.number}</td>
-// 		<td>{claim.status}</td>
-// 		<td>{claim.amount}</td>
-// 		<td>{claim.holder}</td>
-// 		<td>{claim.policyNumber}</td>
-// 		<td>{claim.insuredItem}</td>
-// 		<td>{claim.description}</td>
-// 		<td>{claim.incidentDate}</td>
-// 		<td>{claim.processingFee}</td>
-// 		<td>{claim.createdAt}</td>
-// 	</tr>
-// ));

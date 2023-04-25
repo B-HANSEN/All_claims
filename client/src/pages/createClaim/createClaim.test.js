@@ -1,9 +1,12 @@
 import { render, screen } from '@testing-library/react';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import React from 'react';
 import CreateClaim from '.';
 
-const mockedUsedNavigate = jest.fn();
+const shallowRender = Component =>
+	new ShallowRenderer(Component).getRenderOutput();
 
+const mockedUsedNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
 	...jest.requireActual('react-router-dom'),
 	useNavigate: () => mockedUsedNavigate,
@@ -14,6 +17,10 @@ beforeEach(() => {
 });
 
 describe('Create Claim Page tests', () => {
+	it('should match snapshot', () => {
+		expect(shallowRender(<CreateClaim />)).toMatchSnapshot();
+	});
+
 	it('should contain form labels', () => {
 		const policy = screen.getByLabelText(/policy number:/i);
 		const holder = screen.getByLabelText(/holder name:/i);

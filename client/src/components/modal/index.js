@@ -1,10 +1,11 @@
 import React from 'react';
+import { createPortal } from 'react-dom';
+import './modal.css';
 
-const Modal = () => {
-	return (
-		<>
-			<h1>Modal</h1>
-		</>
+const Modal = ({ children }) => {
+	return createPortal(
+		<div className='ModalContents'>{children}</div>,
+		document.getElementById('modal_root')
 	);
 };
 

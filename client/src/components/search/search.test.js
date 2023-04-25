@@ -1,0 +1,33 @@
+import React from 'react';
+import '@testing-library/jest-dom';
+import { render, screen, fireEvent } from '@testing-library/react';
+import ShallowRenderer from 'react-test-renderer/shallow';
+import Search from '.';
+
+const shallowRender = Component =>
+	new ShallowRenderer(Component).getRenderOutput();
+
+describe('Search Page tests', () => {
+	it('should match snapshot', () => {
+		expect(shallowRender(<Search setValue={jest.fn()} />)).toMatchSnapshot();
+	});
+
+	it('should change input value when user types and set local state', () => {
+		const handleValue = jest.fn();
+		render(<Search setValue={handleValue} />);
+
+		const input = screen.getByTestId('search');
+		expect(input).toBeInTheDocument();
+
+		fireEvent.change(input, { target: { value: 'CL-49085' } });
+		expect(input.value).toBe('CL-49085');
+
+		const submit = screen.getByRole('button', {
+			name: /submit/i,
+		});
+		expect(submit).toBeEnabled();
+		fireEvent.click(submit);
+
+		expect(handleValue).toHaveBeenCalledTimes(1);
+	});
+});

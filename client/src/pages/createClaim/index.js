@@ -1,23 +1,17 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Footer from '../../components/footer';
 import ClaimsForm from '../../components/form';
 import Header from '../../components/header';
-// import './createClaim.css';
+import './createClaim.css';
 
 const CreateClaim = () => {
 	return (
-		<>
+		<div className='CreateClaim'>
 			<Header />
-			<Button className='mb-2' href='/' size='lg' variant='outline-success'>
-				Show claim list
-			</Button>
-			<h1>Create Claim</h1>
-			<section className='ClaimsForm'>
+			<section className='CreateClaim__MainSection'>
+				<h1>Create Claim</h1>
 				<ClaimsForm />
 			</section>
-			{/* <Footer /> */}
-		</>
+		</div>
 	);
 };
 

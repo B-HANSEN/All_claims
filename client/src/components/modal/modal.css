@@ -1,0 +1,12 @@
+.ModalContents {
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 25px;
+	color: #fff;
+	display: flex;
+	font-size: 40px;
+	height: 200px;
+	justify-content: center;
+	margin-top: 300px;
+	width: 1000px;
+}
