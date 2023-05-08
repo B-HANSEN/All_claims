@@ -4,12 +4,11 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import ShallowRenderer from 'react-test-renderer/shallow';
 import Search from '.';
 
-const shallowRender = Component =>
-	new ShallowRenderer(Component).getRenderOutput();
-
 describe('Search Page tests', () => {
 	it('should match snapshot', () => {
-		expect(shallowRender(<Search setValue={jest.fn()} />)).toMatchSnapshot();
+		const renderer = new ShallowRenderer();
+		const result = renderer.render(<Search setValue={jest.fn()} />);
+		expect(result).toMatchSnapshot();
 	});
 
 	it('should change input value when user types and set local state', () => {

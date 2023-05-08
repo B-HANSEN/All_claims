@@ -1,20 +1,13 @@
-import {
-	render,
-	screen,
-	fireEvent,
-	waitFor,
-	waitForElement,
-} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import ShallowRenderer from 'react-test-renderer/shallow';
 import React from 'react';
 import NotFound from '.';
 
-const shallowRender = Component =>
-	new ShallowRenderer(Component).getRenderOutput();
-
 describe('Not Found Page tests', () => {
 	it('should match snapshot', () => {
-		expect(shallowRender(<NotFound />)).toMatchSnapshot();
+		const renderer = new ShallowRenderer();
+		const result = renderer.render(<NotFound />);
+		expect(result).toMatchSnapshot();
 	});
 
 	it('should contain 404 elements', async () => {

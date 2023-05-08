@@ -1,3 +1,71 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Claim List Page tests should match snapshot 1`] = `null`;
+exports[`Claim List Page tests should match snapshot 1`] = `
+<BootstrapTableContainer
+  bootstrap4={true}
+  columns={
+    Array [
+      Object {
+        "dataField": "number",
+        "text": "Claim ID",
+      },
+      Object {
+        "dataField": "status",
+        "text": "Status",
+      },
+      Object {
+        "dataField": "amount",
+        "sort": true,
+        "text": "Amount",
+      },
+      Object {
+        "dataField": "holder",
+        "text": "Holder",
+      },
+      Object {
+        "dataField": "policyNumber",
+        "text": "Policy number",
+      },
+      Object {
+        "dataField": "insuredItem",
+        "text": "Insured item",
+      },
+      Object {
+        "dataField": "description",
+        "text": "Description",
+      },
+      Object {
+        "dataField": "incidentDate",
+        "text": "Incident date",
+      },
+      Object {
+        "dataField": "processingFee",
+        "sort": true,
+        "text": "Processing fee",
+      },
+      Object {
+        "dataField": "totalFee",
+        "sort": true,
+        "text": "Total amount",
+      },
+      Object {
+        "dataField": "createdAt",
+        "sort": true,
+        "text": "Created at",
+      },
+    ]
+  }
+  condensed={true}
+  hover={true}
+  keyField="id"
+  pagination={
+    Object {
+      "createContext": [Function],
+      "options": Object {
+        "sizePerPage": 10,
+      },
+    }
+  }
+  striped={true}
+/>
+`;

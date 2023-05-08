@@ -37,7 +37,7 @@ In case the user inserts an incorrect URL, a Not Found page will indicate this, 
 To setup backend service, change directory to `mock/` and run `npm install`.
 To start the server, run `npm run mock`.
 
-To setup the frontend, change directory to `/client` and run `yarn`.
+To setup the frontend, change directory to `/claims` and run `yarn`.
 To start the frontend, run `yarn start`.
 The app will be running on http://localhost:3000/.
 

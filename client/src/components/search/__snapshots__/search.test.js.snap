@@ -1,3 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Search Page tests should match snapshot 1`] = `null`;
+exports[`Search Page tests should match snapshot 1`] = `
+<Form
+  onSubmit={[Function]}
+>
+  <FormGroup
+    className="mb-3"
+  >
+    <FormLabel>
+      Search by ID, holder name or policy
+    </FormLabel>
+    <FormControl
+      data-testid="search"
+      id="search"
+      name="search"
+      onChange={[Function]}
+      onFocus={[Function]}
+      placeholder="Enter query here..."
+      size="lg"
+      type="text"
+      value=""
+    />
+  </FormGroup>
+  <Button
+    className="mb-2"
+    onClick={[Function]}
+    size="lg"
+    type="submit"
+    variant="primary"
+  >
+    Submit
+  </Button>
+   
+  <Button
+    className="mb-2"
+    onClick={[Function]}
+    size="lg"
+    type="submit"
+    variant="outline-secondary"
+  >
+    Reset
+  </Button>
+</Form>
+`;

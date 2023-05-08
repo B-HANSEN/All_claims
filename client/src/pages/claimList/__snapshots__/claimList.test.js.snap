@@ -1,3 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Claim List Page tests should match snapshot 1`] = `null`;
+exports[`Claim List Page tests should match snapshot 1`] = `
+<div
+  className="ClaimList"
+>
+  <Header />
+  <section
+    className="ClaimList__MainSection"
+  >
+    <h1>
+      Overview claims
+    </h1>
+    <section
+      className="ClaimList__Filter"
+    >
+      <Search
+        setValue={[Function]}
+      />
+      <StatusFilter
+        filter="ShowAll"
+        setFilter={[Function]}
+      />
+    </section>
+    <Button
+      className="mb-2"
+      href="/?admin=true"
+      size="lg"
+      variant="outline-success"
+    >
+      Admin Section
+    </Button>
+     
+    <Button
+      className="mb-2"
+      href="/create-claim"
+      size="lg"
+      variant="outline-success"
+    >
+      Create a new claim
+    </Button>
+    <section
+      className="ClaimList__Table"
+    >
+      <ClaimsTable
+        filteredClaims={Array []}
+      />
+    </section>
+  </section>
+</div>
+`;

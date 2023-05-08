@@ -1,3 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Create Claim Page tests should match snapshot 1`] = `null`;
+exports[`Create Claim Page tests should match snapshot 1`] = `
+<div
+  className="CreateClaim"
+>
+  <Header />
+  <section
+    className="CreateClaim__MainSection"
+  >
+    <h1>
+      Create Claim
+    </h1>
+    <ClaimsForm />
+  </section>
+</div>
+`;

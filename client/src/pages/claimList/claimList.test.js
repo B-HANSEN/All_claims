@@ -4,16 +4,15 @@ import ShallowRenderer from 'react-test-renderer/shallow';
 import '@testing-library/jest-dom';
 import ClaimList from '.';
 
-const shallowRender = Component =>
-	new ShallowRenderer(Component).getRenderOutput();
-
 beforeEach(() => {
 	render(<ClaimList />);
 });
 
 describe('Claim List Page tests', () => {
 	it('should match snapshot', () => {
-		expect(shallowRender(<ClaimList />)).toMatchSnapshot();
+		const renderer = new ShallowRenderer();
+		const result = renderer.render(<ClaimList />);
+		expect(result).toMatchSnapshot();
 	});
 
 	it('should contain heading, label and button texts', () => {

@@ -3,12 +3,11 @@ import ShallowRenderer from 'react-test-renderer/shallow';
 import React from 'react';
 import StatusFilter from '.';
 
-const shallowRender = Component =>
-	new ShallowRenderer(Component).getRenderOutput();
-
 describe('Status filter tests', () => {
 	it('should match snapshot', () => {
-		expect(shallowRender(<StatusFilter />)).toMatchSnapshot();
+		const renderer = new ShallowRenderer();
+		const result = renderer.render(<StatusFilter />);
+		expect(result).toMatchSnapshot();
 	});
 
 	it('should update local state with new filter value', () => {

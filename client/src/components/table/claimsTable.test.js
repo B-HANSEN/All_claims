@@ -3,9 +3,6 @@ import ShallowRenderer from 'react-test-renderer/shallow';
 import React from 'react';
 import ClaimsTable from '.';
 
-const shallowRender = Component =>
-	new ShallowRenderer(Component).getRenderOutput();
-
 const claims = [
 	{
 		id: 1,
@@ -39,7 +36,9 @@ const claims = [
 
 describe('Claim List Page tests', () => {
 	it('should match snapshot', () => {
-		expect(shallowRender(<ClaimsTable />)).toMatchSnapshot();
+		const renderer = new ShallowRenderer();
+		const result = renderer.render(<ClaimsTable />);
+		expect(result).toMatchSnapshot();
 	});
 
 	it('should contain table headers', () => {
