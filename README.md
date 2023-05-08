@@ -1,6 +1,6 @@
 # Application name
 
-Tigerlab Frontend Engineer Assignment
+Dummy name
 
 ## Overview
 
@@ -37,7 +37,7 @@ In case the user inserts an incorrect URL, a Not Found page will indicate this, 
 To setup backend service, change directory to `mock/` and run `npm install`.
 To start the server, run `npm run mock`.
 
-To setup the frontend, change directory to `/claims` and run `yarn`.
+To setup the frontend, change directory to `/client` and run `yarn`.
 To start the frontend, run `yarn start`.
 The app will be running on http://localhost:3000/.
 
@@ -50,9 +50,3 @@ To start the test runner, run `yarn test`.
 - Several unit tests can be run, together with snapshot tests.
 - Test files are placed together with the components in their respective folders.
 - Test file format is \*.test.js
-
-## Pending TODOs
-
-In the create claims form, the validation for the incident date does not yet provide the validation for the allowed date range.
-The user must insert a date according to the format as indicated in the placeholder text.
-However, it does provide the minimum validation check as required field, as implemented for all other input fields as well.
